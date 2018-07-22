@@ -11,34 +11,7 @@
 
 using namespace std;
 
-//class Knuths{
-//private:
-//    int firstop, arrows, secondop;
-//protected:
-//public:
-//    Knuths(int x, int y, int z){}
-//
-//    void setFirstOp(int x){
-//        firstop = x;
-//    }
-//    void setArrows(int y){
-//        arrows = y;
-//    }
-//    void setSecondOp(int z){
-//        secondop = z;
-//    }
-//    int getFirstOp(){
-//        return firstop;
-//    }
-//    int getArrows(){
-//        return arrows;
-//    }
-//    int getSecondOp(){
-//        return secondop;
-//    }
-//};
-
-double Knuths(int x, int y, int z);
+int Knuths(int x, int y, int z);
 
 int main() {
     int firstop, arrows, secondop;
@@ -47,14 +20,13 @@ int main() {
     cout << "Your Knuths output is " << Knuths(firstop, arrows, secondop) << endl;
 }
 
-// Basic implementation of 1 and 2 arrows
-double Knuths(int x, int y, int z){
+// Knuths using base case and recursion
+int Knuths(int x, int y, int z){
     if(y==1){
         return pow(x,z);
     }
-    if(y==2){
-        return pow(x,pow(x,z));
+    else{
+        return pow(x,Knuths(x, y-1, z));
     }
-    return 0;
 }
 
